@@ -1,8 +1,13 @@
 Nicholas Pickering
+
 Operating Systems COP4610
+
 Project 3 - Page Replacement Policies
+
 Professor Littleton
+
 Date Due: 12/11/2015
+
 Date Submitted: 12/06/2015
 
 # Introduction
@@ -14,8 +19,8 @@ This program simulates two page replacement policies, and examines their perform
 Invoke the application by calling:
     ./p3 number_of_page_requests number_of_pages
 
-    where number_of_page_requests is the number of page requests to use in the simulation,
-    number_of_pages is the number of unique pages in the request sequence
+where number_of_page_requests is the number of page requests to use in the simulation,
+number_of_pages is the number of unique pages in the request sequence
 
 # Main
 The entry point to the application is main.py.
