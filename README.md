@@ -2,8 +2,8 @@ Nicholas Pickering
 Operating Systems COP4610
 Project 3 - Page Replacement Policies
 Professor Littleton
-Date Due: 12/13/2015
-Date Submitted 12/13/2015
+Date Due: 12/11/2015
+Date Submitted: 12/06/2015
 
 # Introduction
 This program simulates two page replacement policies, and examines their performance:
@@ -12,22 +12,23 @@ This program simulates two page replacement policies, and examines their perform
 
 # Invoking the application
 Invoke the application by calling:
-    ./p3 page_requests max_integer page_frames
+    ./p3 number_of_page_requests number_of_pages
 
-    where page_request is the number of page requests to use in the simulation,
-    max_integer is the maximum possible value of a page,
-    and page_frames is the value to be used by Round Robin as the Time Quantum
+    where number_of_page_requests is the number of page requests to use in the simulation,
+    number_of_pages is the number of unique pages in the request sequence
 
-# Main, Library
-The entry point to the application is main.py. This program references several helper classes in the lib directory.
+# Main
+The entry point to the application is main.py.
 
 # Output Files
 This program produces output to the console.
 
-An example result set for each test is saved to the output directory, with the same name as tests.
-Tests are available in the data directory.
+An example result set for my initial test is saved to the output directory.
 
-# Test Data
-The project contains a directory named "data" which contains the provided test files.
+# Report
+The required report regarding performance analysis is at data/report.txt.
 
 # Issues / Difficulties
+Simulating the Page Replacement Policies was very straightforward. The biggest challenge was perhaps the priority queue
+necessary to manage the LRU replacement policy. As new pages were requested, it was necessary to update a priority
+queue to keep track of how recently used each page in the page frames are.

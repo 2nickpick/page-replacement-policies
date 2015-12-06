@@ -40,12 +40,6 @@ else:
 print("Number of Page Requests: ", number_of_page_requests)
 print("Number of Pages: ", number_of_pages)
 
-page_requests = []
-
-
-for x in range(0, number_of_page_requests):
-    page_requests.append(randint(0, number_of_pages))
-
 for page_frame_count in range(2, number_of_pages+1):
 
     # test out algorithms with number of page frames leading up to max page frames
@@ -56,6 +50,13 @@ for page_frame_count in range(2, number_of_pages+1):
 
     for counter in range(0, number_of_experiments):
 
+        # generate new page requests
+        page_requests = []
+
+        for x in range(0, number_of_page_requests):
+            page_requests.append(randint(0, number_of_pages))
+
+        # reset stacks and counts
         page_frames_fifo = []
         page_faults_fifo = 0
 
@@ -70,7 +71,6 @@ for page_frame_count in range(2, number_of_pages+1):
 
             if page_request not in page_frames_fifo:
                 page_faults_fifo += 1
-                page_faults_fifo_total += 1
                 if len(page_frames_fifo) < page_frame_count:
                     page_frames_fifo.append(page_request)
                 else:
@@ -100,13 +100,21 @@ for page_frame_count in range(2, number_of_pages+1):
                 page_frames_priority_lru.remove(page_request)
             page_frames_priority_lru.append(page_request)
 
-    total_page_requests = len(page_requests) * number_of_experiments
+        page_faults_fifo_total += page_faults_fifo
 
-    print("FIFO\tPage Faults: {}\tPage Requests: {}\tSuccess Rate: {}\tFailure Rate: {}"
-          .format(page_faults_fifo_total, total_page_requests, 1.0 - (page_faults_fifo_total / total_page_requests), page_faults_fifo_total / total_page_requests))
+    total_page_requests = number_of_page_requests * number_of_experiments
 
-    print("LRU \tPage Faults: {}\tPage Requests: {}\tSuccess Rate: {} \tFailure Rate: {}"
-          .format(page_faults_lru_total , total_page_requests, 1.0 - (page_faults_lru_total / total_page_requests), page_faults_lru_total / total_page_requests))
+    print("FIFO\tPage Faults: {}\tPage Requests: {}\tSuccess Rate: {:10.3f}%\tFailure Rate: {:10.3f}%"
+          .format(page_faults_fifo_total,
+                  total_page_requests,
+                  (1.0 - (page_faults_fifo_total / total_page_requests)) * 100,
+                  (page_faults_fifo_total / total_page_requests) * 100))
+
+    print("LRU \tPage Faults: {}\tPage Requests: {}\tSuccess Rate: {:10.3f}%\tFailure Rate: {:10.3f}%"
+          .format(page_faults_lru_total,
+                  total_page_requests,
+                  (1.0 - (page_faults_lru_total / total_page_requests)) * 100,
+                  (page_faults_lru_total / total_page_requests)* 100))
 
     print("---------------------------------------\n")
 
