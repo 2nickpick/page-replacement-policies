@@ -1,9 +1,9 @@
 Nicholas Pickering
 Operating Systems COP4610
-Project 2 - Analysis of Uniprocessor Scheduling Algorithms
+Project 3 - Analysis of Uniprocessor Scheduling Algorithms
 Professor Littleton
-Date Due: 11/15/2015
-Date Submitted 11/15/2015
+Date Due: 12/11/2015
+Date Submitted 12/11/2015
 
 # Introduction
 This program simulates several uniprocessor scheduling aglorithms including:
