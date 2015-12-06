@@ -12,9 +12,9 @@ This program simulates two page replacement policies, and examines their perform
 
 # Invoking the application
 Invoke the application by calling:
-    ./p3 num_pages max_integer page_frames
+    ./p3 page_requests max_integer page_frames
 
-    where num_pages is the number of pages to use in the simulation,
+    where page_request is the number of page requests to use in the simulation,
     max_integer is the maximum possible value of a page,
     and page_frames is the value to be used by Round Robin as the Time Quantum
 
